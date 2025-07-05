@@ -1,0 +1,133 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+  <title>YT DOWNLOADER</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    #main {
+      display: none;
+      height: 100%;
+      background: url('https://i.ibb.co/x3CHkFZ/money-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+      text-align: center;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 10px;
+      width: 85%;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #ff0000;
+      color: white;
+      font-weight: bold;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 90px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">
+    <h1>🚀 YT DOWNLOADER</h1>
+    <p>Loading your app...</p>
+  </div>
+
+  <!-- Main App -->
+  <div id="main">
+    <h2>📥 All Video Downloader</h2>
+
+    <div class="section">
+      <input type="text" id="videoLink" placeholder="Paste video link here" />
+      <select id="platform">
+        <option value="youtube">YouTube</option>
+        <option value="facebook">Facebook</option>
+        <option value="instagram">Instagram</option>
+      </select>
+      <button onclick="downloadVideo()">Download Now</button>
+    </div>
+
+    <div class="section">
+      <h3>📱 WhatsApp Status Saver Guide</h3>
+      <p>Go to: <b>Internal Storage → WhatsApp → Media → .Statuses</b></p>
+      <p>Copy or move viewed status to save.</p>
+    </div>
+
+    <!-- Optional Ad Banner -->
+    <!-- <iframe src="YOUR_AD_CODE_LINK_HERE"></iframe> -->
+  </div>
+
+  <script>
+    // Splash timeout
+    setTimeout(function () {
+      document.getElementById('splash').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    }, 2000); // 2 seconds splash
+
+    // Download action
+    function downloadVideo() {
+      let link = document.getElementById("videoLink").value;
+      let platform = document.getElementById("platform").value;
+      let site = "";
+
+      if (platform === "youtube") {
+        site = "https://www.y2mate.com/youtube/" + encodeURIComponent(link);
+      } else if (platform === "facebook") {
+        site = "https://fbdown.net/download.php?URL=" + encodeURIComponent(link);
+      } else if (platform === "instagram") {
+        site = "https://savefrom.net/18/download-from-instagram?url=" + encodeURIComponent(link);
+      }
+
+      if (link.length > 0) {
+        window.open(site, "_blank");
+      } else {
+        alert("Please paste a video link.");
+      }
+    }
+  </script>
+
+</body>
+</html>
