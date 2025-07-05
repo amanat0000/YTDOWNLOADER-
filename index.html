@@ -3,21 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YT Downloader</title>
+  <title>Smart Video Downloader</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    select, input {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    button {
+      background-color: #00c853;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00b347;
+    }
+  </style>
 </head>
-<body style="text-align: center; font-family: sans-serif; background: #f3f3f3; padding: 20px;">
+<body>
 
-  <h2>📥 Video Downloader</h2>
+  <div class="container">
+    <h2>📥 Smart Video Downloader</h2>
 
-  <label>Select Platform:</label><br/>
-  <select id="platform">
-    <option value="youtube">YouTube</option>
-    <option value="facebook">Facebook</option>
-    <option value="instagram">Instagram</option>
-  </select><br/><br/>
+    <label for="platform">Choose Platform</label>
+    <select id="platform">
+      <option value="youtube">YouTube</option>
+      <option value="facebook">Facebook</option>
+      <option value="instagram">Instagram</option>
+    </select>
 
-  <input type="text" id="videoLink" placeholder="Paste video link" style="width: 90%; padding: 10px;"/><br/><br/>
-  <button onclick="downloadVideo()" style="padding: 10px 20px;">Download</button>
+    <input type="text" id="videoLink" placeholder="Paste video link here"/>
+
+    <button onclick="downloadVideo()">Download</button>
+  </div>
 
   <script>
     function downloadVideo() {
@@ -33,12 +84,12 @@
       if (platform === "youtube") {
         targetURL = "https://savefrom.bz/";
       } else if (platform === "facebook") {
-        targetURL = "https://fdownloader.net/download?url=" + encodeURIComponent(link);
+        targetURL = "https://fdown.net/download.php?URL=" + encodeURIComponent(link);
       } else if (platform === "instagram") {
         targetURL = "https://snapinsta.to/en#google_vignette";
       }
 
-      // redirect to downloader
+      // Redirect user
       window.location.href = targetURL;
     }
   </script>
