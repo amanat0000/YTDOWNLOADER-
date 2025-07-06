@@ -6,7 +6,7 @@
   <title>YT Downloader</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #000000, #444444);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       font-family: 'Segoe UI', sans-serif;
       color: white;
       padding: 20px;
@@ -14,16 +14,19 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       max-width: 400px;
       margin: auto;
+      backdrop-filter: blur(6px);
     }
 
     h2 {
       margin-bottom: 20px;
+      color: #ffffff;
+      font-weight: 600;
     }
 
     select, input, button {
@@ -33,27 +36,30 @@
       border: none;
       border-radius: 10px;
       font-size: 16px;
+      outline: none;
     }
 
     select, input {
-      background: #f0f0f0;
+      background: #ffffff;
       color: #333;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     }
 
     button {
-      background-color: #00c853;
-      color: white;
+      background-color: #1de9b6;
+      color: #000;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #00b347;
+      background-color: #00bfa5;
     }
 
     .paste-btn {
       background-color: #ff9800;
+      color: white;
     }
 
     .paste-btn:hover {
@@ -61,7 +67,7 @@
     }
 
     .ad-container {
-      margin-top: 25px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -77,29 +83,24 @@
       <option value="instagram">Instagram</option>
     </select>
 
-    <input type="text" id="videoLink" placeholder="Paste video link here"/>
+    <input type="text" id="videoLink" placeholder="Paste video link here" />
 
     <button class="paste-btn" onclick="pasteFromClipboard()">📋 Paste</button>
     <button onclick="downloadVideo()">⬇️ Download</button>
+  </div>
 
-    <!-- ✅ Adsterra Banner Ad -->
-    <div class="ad-container">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : 'd1a03f7315d2960bd15fae92fc315261',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/d1a03f7315d2960bd15fae92fc315261/invoke.js"></script>
-    </div>
-
-    <!-- ✅ Profitableratecpm Ad Script -->
-    <div class="ad-container">
-      <script type='text/javascript' src='//pl27090116.profitableratecpm.com/b0/d6/e0/b0d6e0ffd374dd0d81dd55a5a5db19ed.js'></script>
-    </div>
+  <!-- ✅ Your New Ad Code at Bottom -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'bab9857f557918ab609a8d9ed6d05dd5',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/bab9857f557918ab609a8d9ed6d05dd5/invoke.js"></script>
   </div>
 
   <script>
@@ -113,15 +114,15 @@
     }
 
     function downloadVideo() {
-      var link = document.getElementById("videoLink").value.trim();
-      var platform = document.getElementById("platform").value;
+      const link = document.getElementById("videoLink").value.trim();
+      const platform = document.getElementById("platform").value;
 
       if (!link) {
         alert("Please paste a video link.");
         return;
       }
 
-      var targetURL = "";
+      let targetURL = "";
       if (platform === "youtube") {
         targetURL = "https://savefrom.bz/";
       } else if (platform === "facebook") {
